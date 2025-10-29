@@ -2,14 +2,45 @@ import pandas as pd
 import seaborn as sb
 data = pd.read_csv("excel.csv")
 
+
+#3, list of the size and datatype
 a = data.info()
+
+
+#4, number of unique values for each column
 b = data.nunique()
+
+
+#5, gives important statistical values (mean, median etc.)
 c = data.describe()
+
+# 6. Adding a GNI per Capita column and using round function to round it to nearest cent
+d = data["GNI per Capita"] = data["GNI"] / data ["Population"]
+e = round(d,1)
+
+# 7. a) how many countries are there in each region
+f = data.value_counts("Region")
+
+
+# 8. Where are the high income economies?” (per region)
+h = pd.crosstab(data['Region'],data['High Income Economy'])
+
 
 d = data["GNI per Capita"] = data["GNI"] / data ["Population"]
 e = round(d,1)
 f = data.value_counts("Region")
 g = data.value_counts("High Income Economy")
 h = pd.crosstab(data['Region'],data['High Income Economy'])
-i = data[data["Life expectancy, female"]]
-print(a,b,c,d,e,f,g,h)
+
+
+#9, loop for female life expectancy
+
+data[["Life expectancy, female"]]
+countries = []
+for i in range(len(data)):
+    if data["Life expectancy, female"][i] > 80:
+        countries.append(data["Country Name"][i])
+
+i= ("Number of Countries:", len(countries))
+j= ("countries:", countries)
+
