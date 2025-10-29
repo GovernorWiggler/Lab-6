@@ -1,0 +1,15 @@
+import pandas as pd
+import seaborn as sb
+data = pd.read_csv("excel.csv")
+
+a = data.info()
+b = data.nunique()
+c = data.describe()
+
+d = data["GNI per Capita"] = data["GNI"] / data ["Population"]
+e = round(d,1)
+f = data.value_counts("Region")
+g = data.value_counts("High Income Economy")
+h = pd.crosstab(data['Region'],data['High Income Economy'])
+i = data[data["Life expectancy, female"]]
+print(a,b,c,d,e,f,g,h)
