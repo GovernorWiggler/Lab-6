@@ -59,7 +59,7 @@ j= ("countries:", countries)
 
 #female
 sns.relplot(data=data, x="GNI per Capita", y="Life expectancy, female")
-plt.xlabel("GNI per capita (USD)")
+plt.xlabel("GNI per capita")
 plt.ylabel("Female Life Expectancy (years)")
 plt.title("GNI per capita vs Female Life Expectancy")
 plt.show()
@@ -67,10 +67,67 @@ plt.show()
 
 #male
 sns.relplot(data=data, x="GNI per Capita", y="Life expectancy, male")
-plt.xlabel("GNI per capita (USD)")
+plt.xlabel("GNI per capita")
 plt.ylabel("Male Life Expectancy (years)")
 plt.title("GNI per capita vs Male Life Expectancy")
 plt.show()
 
 
-#2, sewewewewewe2w
+#2, plots to see if the association between GNA per capita and life expectancy
+#varies by region
+
+#female
+sns.relplot(data=data, x="GNI per Capita", y="Life expectancy, female",hue="Region")
+plt.xlabel("GNI per capita")
+plt.ylabel("Female Life Expectancy (years)")
+plt.title("GNI per capita vs Female Life Expectancy")
+plt.show()
+
+#male
+sns.relplot(data=data, x="GNI per Capita", y="Life expectancy, male",hue="Region")
+plt.xlabel("GNI per capita")
+plt.ylabel("Male Life Expectancy (years)")
+plt.title("GNI per capita vs Male Life Expectancy")
+plt.show()
+
+
+#3, standard deviation for previous plots
+
+
+#female
+sns.relplot(data=data, x="GNI per Capita", y="Life expectancy, female",hue="Region"
+,kind="line",errorbar="sd")
+plt.xlabel("GNI per capita")
+plt.ylabel("Female Life Expectancy (years)")
+plt.title("GNI per capita vs Female Life Expectancy")
+plt.show()
+
+
+
+#male
+sns.relplot(data=data, x="GNI per Capita", y="Life expectancy, male",hue="Region",
+kind="line",errorbar="sd")
+plt.xlabel("GNI per capita")
+plt.ylabel("Male Life Expectancy (years)")
+plt.title("GNI per capita vs Male Life Expectancy")
+plt.show()
+
+
+#4, linear regression for previous plots
+
+
+#female 
+sns.lmplot(data=data,x="GNI per Capita", y="Life expectancy, female", hue="Region")
+plt.title("Linear Regression: Female Life Expectancy vs GNI per capita")
+plt.xlabel("GNI per capita")
+plt.ylabel("Female Life Expectancy (years)")
+plt.show()
+
+
+
+#male
+sns.lmplot(data=data,x="GNI per Capita", y="Life expectancy, male",hue="Region")
+plt.title("Linear Regression: Male Life Expectancy vs GNI per capita")
+plt.xlabel("GNI per capita ")
+plt.ylabel("Male Life Expectancy (years)")
+plt.show()
