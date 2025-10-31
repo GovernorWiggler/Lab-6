@@ -159,7 +159,7 @@ plt.show()
 
 #5, b. relationship between number of physicians and life expectancy
 
-sns.relplot(data=data_for_each_gender,x="Physicians",y="Life expectancy",col="Gender")   
+sns.relplot(data=data_for_each_gender,x="Physicians",y="Life expectancy",col="Gender",hue="Region")   
 plt.suptitle("Physicians vs Life expectancy")
 plt.xlabel("Physicians")
 plt.ylabel("Life expectancy")
@@ -167,14 +167,26 @@ plt.show()
 
 #5, c. relationship between Greenhouse gas emissions and life expectancy
 
-sns.relplot(data=data_for_each_gender,x="Greenhouse gas emissions",y="Life expectancy",col="Gender",hue="Region")
+sns.relplot(data=data_for_each_gender,x="Greenhouse gas emissions",y="Life expectancy",col="Gender")
 plt.suptitle("Emissions vs Life expectancy")
 plt.xlabel("Greenhouse gas emissions")
+plt.xscale('log')   #my data was squeezed between 0 and 0.2 because the scale was big, i used log scale to make it spread out
 plt.ylabel("Life expectancy")
 plt.show()
 
-sns.relplot(data=data_for_each_gender, x="High Income Economy", y="Life expectancy", col="Gender", kind="bar")
-plt.suptitle("High-Income Economy vs Life Expectancy")
-plt.xlabel("High Income Economy (0 = No, 1 = Yes)")
-plt.ylabel("Life Expectancy (years)")
+#5, d. relationship between the total population and life expectancy
+
+sns.relplot(data=data_for_each_gender, x="Population", y="Life expectancy", col="Gender")
+plt.suptitle("Population vs Life expectancy")
+plt.xlabel("Population")
+plt.xscale('log') #I used it here for the same reason as before
+plt.ylabel("Life xpectancy ")
+plt.show()
+
+#5, e. relationship between the number of women with tertiary education and life expectancy
+
+sns.relplot(data=data_for_each_gender, x="Tertiary education, female", y="Life expectancy", col="Gender")
+plt.suptitle("Tertiary education (female) vs Life expectancy")
+plt.xlabel("Tertiary education (female)")
+plt.ylabel("Life xpectancy ")
 plt.show()
