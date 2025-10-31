@@ -73,4 +73,4 @@ plt.title("GNI per capita vs Male Life Expectancy")
 plt.show()
 
 
-#2, 
+#2, sewewewewewe2w
