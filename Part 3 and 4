@@ -1,6 +1,6 @@
 import pandas as pd
 import seaborn as sb
-data = pd.read_csv("excel.csv")
+data = pd.read_csv("wdi_wide.csv")
 
 
 #3, list of the size and datatype
@@ -43,4 +43,5 @@ for i in range(len(data)):
 
 i= ("Number of Countries:", len(countries))
 j= ("countries:", countries)
+
 
