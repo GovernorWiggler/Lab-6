@@ -159,7 +159,7 @@ plt.show()
 
 #5, b. relationship between number of physicians and life expectancy
 
-sns.relplot(data=data_for_each_gender,x="Physicians",y="Life expectancy",col="Gender",hue="Region")   
+sns.relplot(data=data_for_each_gender,x="Physicians",y="Life expectancy",col="Gender",hue="High Income Economy")   
 plt.suptitle("Physicians vs Life expectancy")
 plt.xlabel("Physicians")
 plt.ylabel("Life expectancy")
@@ -176,7 +176,7 @@ plt.show()
 
 #5, d. relationship between the total population and life expectancy
 
-sns.relplot(data=data_for_each_gender, x="Population", y="Life expectancy", col="Gender")
+sns.relplot(data=data_for_each_gender, x="Population", y="Life expectancy", col="Gender",hue="Region")
 plt.suptitle("Population vs Life expectancy")
 plt.xlabel("Population")
 plt.xscale('log') #I used it here for the same reason as before
@@ -190,3 +190,9 @@ plt.suptitle("Tertiary education (female) vs Life expectancy")
 plt.xlabel("Tertiary education (female)")
 plt.ylabel("Life xpectancy ")
 plt.show()
+
+
+#6, a.
+
+
+
