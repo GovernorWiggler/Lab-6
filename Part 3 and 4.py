@@ -131,3 +131,50 @@ plt.title("Linear Regression: Male Life Expectancy vs GNI per capita")
 plt.xlabel("GNI per capita ")
 plt.ylabel("Male Life Expectancy (years)")
 plt.show()
+
+
+#5, creating a new gender column for faceting.
+
+female = data.copy()
+female["Gender"] = "Female"
+female["Life expectancy"] = female["Life expectancy, female"]
+
+male = data.copy()
+male["Gender"] = "Male"
+male["Life expectancy"] = male["Life expectancy, male"]
+
+
+data_for_each_gender = pd.concat([female, male], ignore_index=True)
+
+
+
+#5, a. relationship between life expectancy and internet use
+
+sns.relplot(data=data_for_each_gender, x="Life expectancy",y="Internet use",col="Gender",)
+plt.suptitle("% of Internet Use vs Life Expectancy")
+plt.xlabel("Life expectancy (years)")
+plt.ylabel("Internet use (%)")
+plt.show()
+
+
+#5, b. relationship between number of physicians and life expectancy
+
+sns.relplot(data=data_for_each_gender,x="Physicians",y="Life expectancy",col="Gender")   
+plt.suptitle("Physicians vs Life expectancy")
+plt.xlabel("Physicians")
+plt.ylabel("Life expectancy")
+plt.show()
+
+#5, c. relationship between Greenhouse gas emissions and life expectancy
+
+sns.relplot(data=data_for_each_gender,x="Greenhouse gas emissions",y="Life expectancy",col="Gender",hue="Region")
+plt.suptitle("Emissions vs Life expectancy")
+plt.xlabel("Greenhouse gas emissions")
+plt.ylabel("Life expectancy")
+plt.show()
+
+sns.relplot(data=data_for_each_gender, x="High Income Economy", y="Life expectancy", col="Gender", kind="bar")
+plt.suptitle("High-Income Economy vs Life Expectancy")
+plt.xlabel("High Income Economy (0 = No, 1 = Yes)")
+plt.ylabel("Life Expectancy (years)")
+plt.show()
