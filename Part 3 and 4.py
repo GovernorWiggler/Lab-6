@@ -207,3 +207,19 @@ plt.show()
 high_emissions = data[data["Emission per Capita"] > 0.03]
 z=high_emissions[["Country", "Emission per Capita", "Internet use", "Region"]]
 print(z)
+
+#6, c. variation between region in respect to high emissions vs internet use
+
+sns.relplot(data=high_emissions,x="Internet use",y="Emission per Capita",hue="Region",col="Region")
+plt.xlabel("Internet Use")
+plt.ylabel("High emissions")
+plt.suptitle("High Emission: Internet Use by Region")
+plt.show()
+
+#6, d. relationship between high emission countries and high economies 
+
+sns.relplot(data=high_emissions,x="High Income Economy",y="Emission per Capita")
+plt.xlabel("High Income Economy")
+plt.ylabel("High emissions")
+plt.suptitle("High Emission vs High Income Economy")
+plt.show()
