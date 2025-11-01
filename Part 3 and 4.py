@@ -2,7 +2,7 @@
 """
 Created on Thu Oct 30 22:34:58 2025
 
-@author: lutho
+@author: Danial Hakimikhiabani, Jacob Mockler
 """
 
 import pandas as pd
@@ -26,20 +26,16 @@ c = data.describe()
 d = data["GNI per Capita"] = data["GNI"] / data ["Population"]
 e = round(d,1)
 
-# 7. a) how many countries are there in each region
-f = data.value_counts("Region")
 
+#7, number of Regions and High Income Economies
+f = data.value_counts("Region")
+g = data.value_counts("High Income Economy")
+print (f,g)
 
 # 8. Where are the high income economies?” (per region)
 h = pd.crosstab(data['Region'],data['High Income Economy'])
 
-
-d = data["GNI per Capita"] = data["GNI"] / data ["Population"]
-e = round(d,1)
-f = data.value_counts("Region")
-g = data.value_counts("High Income Economy")
-h = pd.crosstab(data['Region'],data['High Income Economy'])
-
+print (h)
 
 #9, loop for female life expectancy
 
@@ -204,8 +200,8 @@ plt.show()
 
 #6, b. countries with high emission per capita
 
-high_emissions = data[data["Emission per Capita"] > 0.03]
-z=high_emissions[["Country", "Emission per Capita", "Internet use", "Region"]]
+high_emissions = data[data["Emission per Capita"] > 0.003]
+z=high_emissions[["Country Name", "Emission per Capita", "Internet use", "Region"]]
 print(z)
 
 #6, c. variation between region in respect to high emissions vs internet use
