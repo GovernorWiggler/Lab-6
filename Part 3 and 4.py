@@ -192,7 +192,18 @@ plt.ylabel("Life xpectancy ")
 plt.show()
 
 
-#6, a.
+#6, a. relationship between emission by capita and internet use
 
+Emission_per_capita = data["Emission per Capita"] = data["Greenhouse gas emissions"] / data ["Population"]
 
+sns.relplot(data=data,x="Emission per Capita",y="Internet use")
+plt.xlabel("Emission per Capita")
+plt.ylabel("Internet use")
+plt.title("Internet Use vs Emission per Capita")
+plt.show()
 
+#6, b. countries with high emission per capita
+
+high_emissions = data[data["Emission per Capita"] > 0.03]
+z=high_emissions[["Country", "Emission per Capita", "Internet use", "Region"]]
+print(z)
